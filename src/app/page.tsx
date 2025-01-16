@@ -169,7 +169,6 @@ export default function Home() {
             <div>
               <h4 className="mb-4 text-lg font-bold">ติดต่อ</h4>
               <ul className="space-y-2">
-                <li className="text-gray-400">โทร: 02-XXX-XXXX</li>
                 <li className="text-gray-400">อีเมล: contact@pureease.site</li>
               </ul>
             </div>

@@ -1,11 +1,16 @@
 import { Heart, Leaf, Shield } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Navbar */}
-      <nav className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-sm">
+      <motion.nav 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="fixed top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -49,33 +54,57 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
       <section className="pb-12 pt-24 md:pb-24 md:pt-32">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="space-y-6 md:w-1/2">
-              <h1 className="font-heading text-4xl font-bold text-gray-900 md:text-6xl">
+            <motion.div 
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6 md:w-1/2">
+              <motion.h1 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="font-heading text-4xl font-bold text-gray-900 md:text-6xl">
                 เส้นทางสู่สุขภาพที่ดี
-              </h1>
-              <h1 className="font-heading text-4xl font-bold text-primary md:text-6xl">
+              </motion.h1>
+              <motion.h1 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="font-heading text-4xl font-bold text-primary md:text-6xl">
                 เริ่มง่ายๆ กับเรา
-              </h1>
-              <p className="text-xl text-gray-600">
+              </motion.h1>
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7 }}
+                className="text-xl text-gray-600">
                 ค้นพบผลิตภัณฑ์จากธรรมชาติที่ช่วยให้คุณมีสุขภาพที่ดีขึ้นในทุกๆ
                 วัน
-              </p>
-              <div className="flex space-x-4">
+              </motion.p>
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9 }}
+                className="flex space-x-4">
                 <button className="rounded-lg bg-primary px-8 py-3 text-white transition-colors hover:bg-accent">
                   เลือกซื้อสินค้า
                 </button>
                 <button className="rounded-lg border-2 border-primary px-8 py-3 text-primary transition-colors hover:bg-gray-50">
                   ดูรายละเอียด
                 </button>
-              </div>
-            </div>
-            <div className="mt-12 md:mt-0 md:w-1/2">
+              </motion.div>
+            </motion.div>
+            <motion.div 
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="mt-12 md:mt-0 md:w-1/2">
               <Image
                 src="/hero-image.png"
                 alt="Hero"
@@ -83,7 +112,7 @@ export default function Home() {
                 height={400}
                 className="rounded-2xl shadow-lg"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -186,12 +215,18 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <div className="rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
+      className="rounded-xl bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
         {icon}
       </div>
       <h3 className="mb-2 text-xl font-bold">{title}</h3>
       <p className="text-gray-600">{description}</p>
-    </div>
+    </motion.div>
   );
 }

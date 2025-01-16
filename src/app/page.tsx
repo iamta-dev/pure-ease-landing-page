@@ -1,3 +1,5 @@
+'use client'
+
 import { Heart, Leaf, Shield } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";

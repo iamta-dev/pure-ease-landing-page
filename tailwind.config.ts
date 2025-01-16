@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#F27423',
-        secondary: '#1A3668',
-        accent: '#FFE5D1',
+        primary: '#2A9D8F',
+        secondary: '#F4A261',
+        accent: '#457B9D',
       },
       fontFamily: {
-        prompt: ['Prompt', 'sans-serif'],
-        sarabun: ['Sarabun', 'sans-serif'],
+        heading: ['IBM Plex Thai', 'sans-serif'],
+        body: ['Prompt', 'sans-serif'],
       },
     },
   },

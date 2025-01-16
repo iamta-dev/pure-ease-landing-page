@@ -1,29 +1,37 @@
-import type { Metadata } from "next";
-import "~/styles/globals.css";
+import type { Metadata } from 'next'
+import { IBM_Plex_Sans_Thai, Prompt } from 'next/font/google'
+import '~/styles/globals.css';
+
+const ibmPlexThai = IBM_Plex_Sans_Thai({ 
+  subsets: ['thai'],
+  weight: ['400', '700'],
+  variable: '--font-ibm-plex',
+})
+
+const prompt = Prompt({ 
+  subsets: ['thai'],
+  weight: ['400', '700'],
+  variable: '--font-prompt',
+})
 
 export const metadata: Metadata = {
-  title: "YouSense - อัปเกรดประสบการณ์ด้วยเทคโนโลยีล้ำสมัย",
-  description:
-    "ยกระดับธุรกิจของคุณด้วยเทคโนโลยีเซ็นเซอร์อัจฉริยะและ AI จาก YouSense",
+  title: 'PureEase - ผลิตภัณฑ์เพื่อสุขภาพจากธรรมชาติ',
+  description: 'เส้นทางสู่สุขภาพที่ดี เริ่มง่ายๆ กับเรา ด้วยผลิตภัณฑ์จากธรรมชาติที่คัดสรรมาเพื่อคุณ',
   icons: {
-    icon: "/favicon.ico",
-  },
-};
+    icon: '/favicon.ico',
+  }
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="th">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="font-sarabun">{children}</body>
+      <body className={`${ibmPlexThai.variable} ${prompt.variable} font-body`}>
+        {children}
+      </body>
     </html>
-  );
+  )
 }
